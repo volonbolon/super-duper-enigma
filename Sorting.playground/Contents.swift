@@ -14,8 +14,8 @@ for _ in 0..<20 {
 
 print("unsorted: \(unsorted)\n")
 
-func inserSort(unsorted:[Int]) -> [Int] {
-    func insert(_ a:inout [Int], pos:Int, value:Int) {
+func inserSort<T:Comparable>(unsorted:[T]) -> [T] {
+    func insert(_ a:inout [T], pos:Int, value:T) {
         var i = pos - 1
         while i >= 0 && a[i] > value {
             a[i+1] = a[i]
@@ -27,6 +27,7 @@ func inserSort(unsorted:[Int]) -> [Int] {
     var a = unsorted
     for i in 0..<unsorted.count {
         insert(&a, pos: i, value: a[i])
+        print(a)
     }
     return a
 }
